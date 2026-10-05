@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Srishti Singh's BBA Business Analytics portfolio, showcasing Excel-based business analysis and dashboarding skills.">
+  <title>Srishti Singh | Business Analytics Portfolio</title>
+  <style>
+    :root {
+      --ink: #172033;
+      --muted: #647087;
+      --line: #e6eaf2;
+      --blue: #315efb;
+      --violet: #7857e8;
+      --soft: #f5f7ff;
+      --card: #ffffff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: #fbfcff;
+      line-height: 1.65;
+    }
+    a { color: inherit; }
+    .wrap { width: min(1080px, calc(100% - 40px)); margin: 0 auto; }
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      min-height: 76px; border-bottom: 1px solid var(--line);
+    }
+    .brand { font-size: 17px; font-weight: 800; letter-spacing: -.4px; }
+    .brand span { color: var(--blue); }
+    .navlinks { display: flex; gap: 26px; align-items: center; }
+    .navlinks a { text-decoration: none; color: var(--muted); font-size: 13px; font-weight: 600; }
+    .navlinks a:hover, .social a:hover { color: var(--blue); }
+    .hero {
+      display: grid; grid-template-columns: 1.5fr .8fr; align-items: center;
+      gap: 54px; padding: 82px 0 76px;
+    }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--blue); background: #edf1ff; border-radius: 999px;
+      padding: 7px 13px; font-size: 12px; font-weight: 750; letter-spacing: .3px;
+      margin-bottom: 20px;
+    }
+    h1 { font-size: clamp(42px, 6vw, 68px); line-height: 1.05; letter-spacing: -3px; margin-bottom: 18px; }
+    .gradient { background: linear-gradient(100deg, var(--blue), var(--violet)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .hero p { max-width: 630px; color: var(--muted); font-size: 17px; }
+    .social { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 27px; }
+    .social a {
+      text-decoration: none; border: 1px solid var(--line); border-radius: 10px;
+      background: white; padding: 10px 15px; font-size: 13px; font-weight: 700;
+      transition: transform .2s, border-color .2s;
+    }
+    .social a:hover { transform: translateY(-2px); border-color: #b8c5ff; }
+    .portrait-card {
+      justify-self: center; width: min(100%, 300px); padding: 12px;
+      background: white; border: 1px solid var(--line); border-radius: 28px;
+      box-shadow: 0 24px 65px rgba(44, 61, 120, .12); position: relative;
+    }
+    .portrait { display: block; width: 100%; aspect-ratio: 4 / 4.4; object-fit: cover; object-position: 50% 32%; border-radius: 20px; overflow: hidden; background: #eef2f8; }
+    .portrait-note { text-align: center; font-size: 11px; color: #7b8498; padding: 9px 0 1px; }
+    section { padding: 58px 0; border-top: 1px solid var(--line); }
+    .section-head { margin-bottom: 27px; }
+    .kicker { color: var(--blue); font-size: 11px; font-weight: 800; letter-spacing: 1.8px; text-transform: uppercase; }
+    h2 { font-size: 30px; letter-spacing: -1px; line-height: 1.2; margin-top: 7px; }
+    .about-card, .edu-card, .project-card, .contact-card {
+      background: var(--card); border: 1px solid var(--line); border-radius: 18px;
+      padding: 25px; box-shadow: 0 8px 28px rgba(26, 41, 82, .035);
+    }
+    .about-card p { color: var(--muted); max-width: 850px; }
+    .edu-card { display: flex; gap: 18px; align-items: flex-start; }
+    .iconbox {
+      flex: 0 0 48px; width: 48px; height: 48px; display: grid; place-items: center;
+      border-radius: 14px; color: var(--blue); background: #edf1ff; font-size: 22px;
+    }
+    h3 { font-size: 19px; letter-spacing: -.3px; margin-bottom: 5px; }
+    .meta { color: var(--muted); font-size: 14px; }
+    .tag { display: inline-block; margin-top: 12px; background: #f0edff; color: #6246c6; border-radius: 7px; padding: 5px 9px; font-size: 11px; font-weight: 800; }
+    .project-top { display: flex; justify-content: space-between; gap: 18px; align-items: flex-start; }
+    .excel-mark { background: #e5f7ee; color: #147747; font-size: 12px; font-weight: 850; padding: 7px 11px; border-radius: 9px; white-space: nowrap; }
+    .project-card p { color: var(--muted); margin-top: 12px; }
+    .project-card ul { margin: 15px 0 0 20px; color: var(--muted); }
+    .project-card li { padding: 3px 0; }
+    .tools { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+    .pill { border: 1px solid #e3e8f5; background: #f8f9ff; padding: 7px 11px; border-radius: 999px; font-size: 12px; font-weight: 650; color: #47516b; }
+    .skills-grid { display: flex; flex-wrap: wrap; gap: 10px; }
+    .contact-card { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .contact-card p { color: var(--muted); margin-top: 5px; }
+    .contact-button { display: inline-block; text-decoration: none; background: var(--blue); color: white; padding: 12px 17px; border-radius: 10px; font-weight: 750; font-size: 13px; }
+    footer { padding: 28px 0 35px; border-top: 1px solid var(--line); color: #7b8498; font-size: 12px; }
+    @media (max-width: 720px) {
+      .wrap { width: min(100% - 30px, 560px); }
+      nav { min-height: 66px; }
+      .navlinks { gap: 12px; }
+      .navlinks a { font-size: 11px; }
+      .hero { grid-template-columns: 1fr; gap: 34px; padding: 54px 0; }
+      h1 { letter-spacing: -2px; }
+      .hero p { font-size: 15px; }
+      .portrait-card { width: 220px; }
+      section { padding: 43px 0; }
+      h2 { font-size: 26px; }
+      .about-card, .edu-card, .project-card, .contact-card { padding: 20px; }
+    }
+    @media (max-width: 390px) {
+      .navlinks { gap: 8px; }
+      .navlinks a { font-size: 10px; }
+      .brand { font-size: 15px; }
+    }
+
+    /* Visual refresh */
+    :root {
+      --ink: #17233f;
+      --muted: #66718a;
+      --line: #e5e8f2;
+      --blue: #5146e5;
+      --violet: #9a61df;
+      --soft: #f3f3ff;
+      --card: rgba(255, 255, 255, .88);
+    }
+    body {
+      background:
+        radial-gradient(ellipse at 84% 8%, rgba(202, 190, 255, .27), transparent 27rem),
+        radial-gradient(ellipse at 5% 37%, rgba(255, 220, 193, .22), transparent 25rem),
+        #faf9f7;
+    }
+    .wrap { width: min(1100px, calc(100% - 48px)); }
+    nav {
+      position: sticky;
+      top: 12px;
+      z-index: 5;
+      min-height: 68px;
+      margin-top: 12px;
+      padding: 0 16px;
+      border: 1px solid rgba(226, 228, 238, .88);
+      border-radius: 17px;
+      background: rgba(255, 255, 255, .78);
+      box-shadow: 0 8px 28px rgba(37, 42, 83, .055);
+      backdrop-filter: blur(18px);
+    }
+    .brand {
+      font-size: 19px;
+      letter-spacing: -.7px;
+      white-space: nowrap;
+    }
+    .brand span { color: var(--violet); }
+    .navlinks { gap: 5px; }
+    .navlinks a {
+      padding: 9px 13px;
+      border-radius: 10px;
+      transition: color .2s ease, background-color .2s ease, transform .2s ease;
+    }
+    .navlinks a:hover {
+      color: var(--blue);
+      background: #f1efff;
+      transform: translateY(-1px);
+    }
+    .hero {
+      min-height: 580px;
+      grid-template-columns: 1.35fr .75fr;
+      gap: 65px;
+      padding: 78px 0 84px;
+    }
+    .eyebrow {
+      color: #5546c6;
+      background: linear-gradient(115deg, #eeedff, #f6efff);
+      border: 1px solid rgba(115, 91, 218, .13);
+      box-shadow: 0 5px 18px rgba(74, 63, 151, .06);
+      letter-spacing: .7px;
+    }
+    h1 {
+      max-width: 720px;
+      font-size: clamp(44px, 6.5vw, 76px);
+      line-height: 1.02;
+      letter-spacing: -4px;
+    }
+    .gradient {
+      background-image: linear-gradient(105deg, #5146e5 8%, #8b54d7 58%, #d07a9d);
+    }
+    .hero p { font-size: 17px; line-height: 1.8; }
+    .social { gap: 11px; margin-top: 30px; }
+    .social a {
+      border-color: #e7e8f0;
+      border-radius: 12px;
+      padding: 11px 16px;
+      box-shadow: 0 5px 16px rgba(29, 38, 76, .045);
+      transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+    }
+    .social a:hover {
+      transform: translateY(-3px);
+      border-color: #c8c2fb;
+      box-shadow: 0 10px 24px rgba(71, 59, 159, .12);
+    }
+    .portrait-card {
+      isolation: isolate;
+      width: min(100%, 310px);
+      padding: 13px;
+      border-color: rgba(255, 255, 255, .95);
+      border-radius: 30px;
+      box-shadow: 0 28px 70px rgba(48, 48, 94, .16);
+    }
+    .portrait-card::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset: 18px -13px -13px 18px;
+      border-radius: inherit;
+      background: linear-gradient(145deg, #9e89f5, #e8a6b4 85%);
+      opacity: .8;
+      transform: rotate(3deg);
+    }
+    .portrait {
+      border-radius: 21px;
+      background: linear-gradient(145deg, #ecebfa, #f4e9eb);
+    }
+    .portrait-note {
+      padding-top: 11px;
+      color: #737b91;
+      font-size: 11px;
+      letter-spacing: .5px;
+    }
+    section {
+      padding: 67px 0;
+      border-top-color: rgba(222, 225, 236, .85);
+      scroll-margin-top: 78px;
+    }
+    .section-head { margin-bottom: 25px; }
+    .kicker {
+      color: #6757cc;
+      font-size: 10px;
+      letter-spacing: 2.2px;
+    }
+    h2 {
+      font-size: clamp(29px, 4vw, 35px);
+      letter-spacing: -1.3px;
+    }
+    .about-card, .edu-card, .project-card, .contact-card {
+      border-color: rgba(226, 228, 238, .9);
+      border-radius: 20px;
+      padding: 29px;
+      box-shadow: 0 12px 34px rgba(33, 42, 82, .055);
+      backdrop-filter: blur(10px);
+    }
+    .about-card, .edu-card, .project-card {
+      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+    }
+    .about-card:hover, .edu-card:hover, .project-card:hover {
+      transform: translateY(-3px);
+      border-color: #d8d3f8;
+      box-shadow: 0 18px 42px rgba(33, 42, 82, .09);
+    }
+    .about-card p, .project-card p, .project-card ul { line-height: 1.8; }
+    .iconbox {
+      border-radius: 15px;
+      color: #5b4bce;
+      background: linear-gradient(145deg, #efedff, #f6efff);
+    }
+    h3 { font-size: 20px; }
+    .meta { line-height: 1.65; }
+    .tag {
+      background: #f1efff;
+      color: #5b4bce;
+      letter-spacing: .3px;
+    }
+    .project-card {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at 100% 0%, rgba(226, 222, 255, .3), transparent 18rem),
+        var(--card);
+    }
+    .project-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 4px;
+      background: linear-gradient(#6556e8, #c77dc4);
+    }
+    .project-top { align-items: center; }
+    .excel-mark {
+      border: 1px solid #d8efe3;
+      border-radius: 10px;
+      padding: 8px 12px;
+    }
+    .project-card li { padding: 4px 0; }
+    .pill {
+      border-color: #e5e6f1;
+      background: rgba(248, 248, 255, .9);
+      color: #525c75;
+      padding: 8px 12px;
+      transition: transform .18s ease, background-color .18s ease, border-color .18s ease;
+    }
+    .pill:hover {
+      transform: translateY(-2px);
+      border-color: #d1cafa;
+      background: #f0eeff;
+    }
+    .contact-card {
+      color: #fff;
+      border-color: transparent;
+      background:
+        radial-gradient(ellipse at 90% 0%, rgba(178, 149, 255, .32), transparent 22rem),
+        linear-gradient(120deg, #24294b, #383367 75%, #514477);
+      box-shadow: 0 18px 44px rgba(41, 39, 86, .16);
+    }
+    .contact-card p { color: rgba(255, 255, 255, .74); }
+    .contact-card a:not(.contact-button) { color: #e0d9ff; }
+    .contact-button {
+      border: 1px solid rgba(255, 255, 255, .25);
+      background: #fff;
+      color: #363064;
+      padding: 13px 18px;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .contact-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(0, 0, 0, .18);
+    }
+    footer {
+      color: #7e8495;
+      border-top-color: rgba(222, 225, 236, .85);
+    }
+    a:focus-visible {
+      outline: 3px solid rgba(81, 70, 229, .48);
+      outline-offset: 4px;
+      border-radius: 5px;
+    }
+    @media (max-width: 720px) {
+      .wrap { width: min(100% - 30px, 560px); }
+      nav { min-height: 62px; padding: 0 10px; border-radius: 15px; }
+      .hero {
+        min-height: auto;
+        grid-template-columns: 1fr;
+        gap: 42px;
+        padding: 58px 0 68px;
+      }
+      h1 { letter-spacing: -2.5px; }
+      .portrait-card { width: 220px; }
+      section { padding: 49px 0; scroll-margin-top: 66px; }
+      .about-card, .edu-card, .project-card, .contact-card { padding: 22px; }
+    }
+    @media (max-width: 390px) {
+      nav { padding: 0 7px; }
+      .navlinks { gap: 1px; }
+      .navlinks a { padding: 8px 7px; font-size: 10px; }
+      .brand { font-size: 15px; }
+      h1 { font-size: 42px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav aria-label="Main navigation">
+      <a class="brand" href="#top" style="text-decoration:none;">Srishti<span>.</span></a>
+      <div class="navlinks">
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#projects">Project</a>
+        <a href="#skills">Skills</a>
+      </div>
+    </nav>
+
+    <header class="hero" id="top">
+      <div>
+        <div class="eyebrow">BBA · BUSINESS ANALYTICS</div>
+        <h1>Srishti Singh<br><span class="gradient">Turning data into decisions.</span></h1>
+        <p>
+          Business Analytics student interested in understanding business performance,
+          organizing data, and communicating useful insights through Excel-based analysis
+          and clear visual reporting.
+        </p>
+        <div class="social">
+          <a href="mailto:srishtisingh0723@gmail.com">✉ Email</a>
+          <a href="https://linkedin.com/in/srishti-singh-b705b9441" target="_blank" rel="noopener noreferrer">↗ LinkedIn</a>
+          <a href="https://github.com/srishti0723" target="_blank" rel="noopener noreferrer">⌘ GitHub</a>
+        </div>
+      </div>
+
+      <div class="portrait-card" aria-label="Illustrated profile portrait">
+        <img  class="portrait"src="Photo.jpg" alt="Shristi_Singh">
+        <div class="portrait-note">Business Analytics Portfolio</div>
+      </div>
+    </header>
+
+
+    <section id="about">
+      <div class="section-head">
+        <div class="kicker">A little about me</div>
+        <h2>About</h2>
+      </div>
+      <div class="about-card">
+        <p>
+          I am pursuing a BBA-focused path in Business Analytics, where business knowledge
+          meets data-driven thinking. I am interested in using spreadsheets to clean and
+          organize information, track key performance indicators (KPIs), spot trends, and
+          present findings that can help teams make informed decisions.
+        </p>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="section-head">
+        <div class="kicker">Academic background</div>
+        <h2>Education</h2>
+      </div>
+      <div class="edu-card">
+        <div class="iconbox" aria-hidden="true">🎓</div>
+        <div>
+          <h3>Bachelor of Business Administration (BBA)</h3>
+          <div class="meta">KIPM College of Engineering and Technology</div>
+          <p class="meta" style="margin-top:8px;">Business Analytics focus: business reporting, data interpretation, and decision support.</p>
+          <span class="tag">BBA · BUSINESS ANALYTICS</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="section-head">
+        <div class="kicker">Selected work</div>
+        <h2>Excel Project</h2>
+      </div>
+      <article class="project-card">
+        <div class="project-top">
+          <div>
+            <h3>Sales Performance Analysis Dashboard</h3>
+            <div class="meta">Business Analytics · Spreadsheet Reporting</div>
+          </div>
+          <div class="excel-mark">Microsoft Excel</div>
+        </div>
+        <p>
+          A business-focused Excel project designed to summarize sales data and make
+          performance patterns easier to understand through calculations, charts, and a
+          clean dashboard layout.
+        </p>
+        <ul>
+          <li>Organize and clean sales data for consistent reporting.</li>
+          <li>Use formulas and PivotTables to summarize sales, revenue, and profit.</li>
+          <li>Create charts to compare product and regional performance.</li>
+          <li>Highlight trends and key metrics to support business decisions.</li>
+        </ul>
+        <div class="tools">
+          <span class="pill">Excel Formulas</span>
+          <span class="pill">PivotTables</span>
+          <span class="pill">Charts & Graphs</span>
+          <span class="pill">Data Cleaning</span>
+          <span class="pill">KPI Reporting</span>
+        </div>
+      </article>
+    </section>
+
+    <section id="skills">
+      <div class="section-head">
+        <div class="kicker">What I’m building</div>
+        <h2>Skills & Expertise</h2>
+      </div>
+      <div class="skills-grid">
+        <span class="pill">Microsoft Excel</span>
+        <span class="pill">Business Analytics</span>
+        <span class="pill">Data Cleaning</span>
+        <span class="pill">PivotTables</span>
+        <span class="pill">Excel Formulas</span>
+        <span class="pill">Charts & Dashboards</span>
+        <span class="pill">KPI Tracking</span>
+        <span class="pill">Business Reporting</span>
+        <span class="pill">Data Interpretation</span>
+        <span class="pill">Analytical Thinking</span>
+        <span class="pill">Problem Solving</span>
+        <span class="pill">Communication</span>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-head">
+        <div class="kicker">Let’s connect</div>
+        <h2>Contact</h2>
+      </div>
+      <div class="contact-card">
+        <div>
+          <h3>Srishti Singh</h3>
+          <p>Open to learning opportunities and entry-level exposure in Business Analytics.</p>
+          <p><a href="mailto:srishtisingh0723@gmail.com">srishtisingh0723@gmail.com</a></p>
+        </div>
+        <a class="contact-button" href="mailto:srishtisingh0723@gmail.com">Send an Email ↗</a>
+      </div>
+    </section>
+
+    <footer>© 2026 Srishti Singh · Business Analytics Portfolio</footer>
+  </div>
+</body>
+</html>
